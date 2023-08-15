@@ -1,0 +1,14 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "start:backend": "cd backend && npm install && npm start",
+    "start:frontend": "cd frontend && npm install && npm start",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  }
+}

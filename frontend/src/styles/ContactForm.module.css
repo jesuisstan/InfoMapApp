@@ -1,0 +1,12 @@
+.closeArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formList {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  margin: 21px 21px 0;
+}
