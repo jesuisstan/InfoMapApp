@@ -41,7 +41,7 @@ const PleaseLogin = ({
         withCredentials: true
       });
       setUser(response.data);
-      navigate('/contactbook');
+      navigate('/infomap');
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError;

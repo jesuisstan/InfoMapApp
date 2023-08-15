@@ -39,7 +39,7 @@ const MenuDrawer = ({
         </ListItem>
         <ListItem
           onClick={() => {
-            navigate('/contactbook');
+            navigate('/infomap');
             setOpen(false);
           }}
         >

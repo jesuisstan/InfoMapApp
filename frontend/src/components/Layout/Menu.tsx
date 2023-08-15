@@ -49,7 +49,7 @@ const Menu = ({
         ) : (
           <div className={styles.left}>
             <NavLink to=".">Home</NavLink>
-            <NavLink to="contactbook">Contact Book</NavLink>
+            <NavLink to="infomap">Info Map</NavLink>
           </div>
         )}
         <div className={styles.right}>

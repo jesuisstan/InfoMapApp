@@ -13,7 +13,9 @@ const App = () => {
   const [user, setUser] = useState<User>({
     _id: '',
     nickname: '',
-    email: ''
+    email: '',
+    firstName: '',
+    lastName: ''
   });
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const App = () => {
           >
             <Route index={true} element={<Home />} />
             <Route
-              path="contactbook"
+              path="infomap"
               element={<ContactBook user={user} setUser={setUser} />}
             />
             <Route path="login" element={<PleaseLogin setUser={setUser} />} />

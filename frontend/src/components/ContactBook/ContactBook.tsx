@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { User } from '../../types/User';
+import Map from '../Map/Map';
+
 import { Contact } from '../../types/Contact';
 import ContactCard from './ContactCard';
 import ContactForm from './ContactForm';
@@ -73,6 +75,7 @@ const ContactBook = ({
       >
         <SearchBar contacts={allContacts} setSearchResult={setSearchResult} />
 
+<Map />
         <FormControlLabel
           control={
             <Checkbox

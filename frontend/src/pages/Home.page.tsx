@@ -39,7 +39,7 @@ const Home = () => {
             color="inherit"
             sx={MUI.LoadButton}
             onClick={() => {
-              navigate('/contactbook');
+              navigate('/infomap');
             }}
           >
             Start

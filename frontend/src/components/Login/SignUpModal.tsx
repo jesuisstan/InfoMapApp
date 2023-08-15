@@ -28,9 +28,11 @@ const SignUpModal = ({
   const [load, setLoad] = useState(false);
 
   const [values, setValues] = useState<LoginFormValues>({
+    firstName: '',
+    lastName: '',
     nickname: '',
     email: '',
-    password: ''
+    password: '',
   });
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,6 +43,7 @@ const SignUpModal = ({
       await axios.post(`${baseUrl}/api/auth/signup`, values, {
         withCredentials: true
       });
+      console.log(values)
       setOpen(false);
       setLoad(false);
       saveAlert();
@@ -48,6 +51,8 @@ const SignUpModal = ({
     } catch (error) {
       setLoad(false);
       setOpen(false);
+      console.log(error)
+
       errorAlert('Error while creating new account');
     }
   };
@@ -89,6 +94,34 @@ const SignUpModal = ({
               <FormInput
                 {...{
                   id: 1,
+                  name: 'firstName',
+                  type: 'text',
+                  placeholder: 'First name',
+                  errorMessage: 'Max 20 characters. Allowed: A-Z a-z',
+                  label: 'First name',
+                  pattern: '^[A-Za-z]{1,20}$',
+                  required: true
+                }}
+                value={values.firstName}
+                onChange={onChange}
+              />
+              <FormInput
+                {...{
+                  id: 2,
+                  name: 'lastName',
+                  type: 'text',
+                  placeholder: 'Last name',
+                  errorMessage: 'Max 20 characters. Allowed: A-Z a-z',
+                  label: 'Last name',
+                  pattern: '^[A-Za-z]{1,20}$',
+                  required: true
+                }}
+                value={values.lastName}
+                onChange={onChange}
+              />
+              <FormInput
+                {...{
+                  id: 3,
                   name: 'nickname',
                   type: 'text',
                   placeholder: 'Nickname',
@@ -102,7 +135,7 @@ const SignUpModal = ({
               />
               <FormInput
                 {...{
-                  id: 2,
+                  id: 4,
                   name: 'email',
                   type: 'email',
                   placeholder: 'Email',
@@ -116,7 +149,7 @@ const SignUpModal = ({
               />
               <FormInput
                 {...{
-                  id: 3,
+                  id: 5,
                   name: 'password',
                   type: 'password',
                   placeholder: 'Password',
