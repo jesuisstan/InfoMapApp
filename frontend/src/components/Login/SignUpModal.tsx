@@ -6,8 +6,8 @@ import ModalDialog from '@mui/joy/ModalDialog';
 import ModalClose from '@mui/joy/ModalClose';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import FormInput from '../ContactBook/FormInput';
 import { LoginFormValues } from '../../types/LoginFormValues';
+import FormInput from '../UI/FormInput';
 import axios from 'axios';
 import errorAlert from '../../utils/errorAlert';
 import saveAlert from '../../utils/saveAlert';
@@ -43,7 +43,6 @@ const SignUpModal = ({
       await axios.post(`${baseUrl}/api/auth/signup`, values, {
         withCredentials: true
       });
-      console.log(values);
       setOpen(false);
       setLoad(false);
       saveAlert();
@@ -51,8 +50,6 @@ const SignUpModal = ({
     } catch (error) {
       setLoad(false);
       setOpen(false);
-      console.log(error);
-
       errorAlert('Error while creating new account');
     }
   };

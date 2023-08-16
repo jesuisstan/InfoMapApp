@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className={styles.main}>
       <img
-        src={require('../assets/contactBook.png')}
+        src={require('../assets/location.png')}
         alt="ContactBook"
         className={styles.picture}
       />

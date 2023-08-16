@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const MapComponent: React.FC = () => {
+const InfoMap: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -31,4 +31,4 @@ const MapComponent: React.FC = () => {
   return <div ref={mapContainerRef} style={{ width: '100%', height: '400px' }} />;
 };
 
-export default MapComponent;
+export default InfoMap;

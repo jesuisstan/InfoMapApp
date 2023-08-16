@@ -4,7 +4,7 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import BarLoader from 'react-spinners/BarLoader';
 import SignUpModal from './SignUpModal';
 import Stack from '@mui/material/Stack';
-import FormInput from '../ContactBook/FormInput';
+import FormInput from '../UI/FormInput';
 import errorAlert from '../../utils/errorAlert';
 import axios, { AxiosError } from 'axios';
 import LoadingButton from '@mui/lab/LoadingButton';

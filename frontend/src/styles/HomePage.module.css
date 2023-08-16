@@ -17,6 +17,8 @@
 
 .picture {
   display: inline;
+  width: 21%;
+  height: 21%;
 }
 
 .list {
