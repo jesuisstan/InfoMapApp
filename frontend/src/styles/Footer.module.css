@@ -14,6 +14,8 @@
   white-space: nowrap;
   color: var(--MAP_BLACK);
   font-weight: bold;
+  opacity: 0.9;
+  z-index: 11111;
 }
 
 .copyright {
@@ -26,4 +28,7 @@
 .footerLink:link,
 .footerLink:visited {
   font-size: 10px;
+  color: var(--MAP_ORANGE);
+  font-weight: bold;
+  opacity: 1;
 }

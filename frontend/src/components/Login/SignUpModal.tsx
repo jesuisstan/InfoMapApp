@@ -13,7 +13,7 @@ import errorAlert from '../../utils/errorAlert';
 import saveAlert from '../../utils/saveAlert';
 import * as MUI from '../../styles/MUIstyles';
 import * as colors from '../../styles/mapColors';
-import styles from '../../styles/ContactForm.module.css';
+import styles from '../../styles/Login.module.css';
 
 const baseUrl = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}`;
 

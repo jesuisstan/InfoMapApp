@@ -64,17 +64,3 @@ export const burgerItem = {
     cursor: 'pointer'
   }
 };
-
-export const contactCard = {
-  wordBreak: 'break-all',
-  maxWidth: 500,
-  minWidth: 300,
-  color: colors.MAP_BLACK,
-  border: '1px solid',
-  transition: 'border 0.2s ease-in-out',
-  borderColor: colors.MAP_BLUE,
-  ':hover': {
-    cursor: 'pointer',
-    borderColor: colors.MAP_ORANGE
-  }
-};

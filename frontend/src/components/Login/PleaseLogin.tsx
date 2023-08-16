@@ -11,7 +11,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { User } from '../../types/User';
 import * as colors from '../../styles/mapColors';
 import * as MUI from '../../styles/MUIstyles';
-import styles from '../../styles/ContactForm.module.css';
+import styles from '../../styles/Login.module.css';
 
 const PleaseLogin = ({
   setUser

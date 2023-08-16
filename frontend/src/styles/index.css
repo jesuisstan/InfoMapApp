@@ -18,7 +18,6 @@ body {
 
 a {
   color: var(--MAP_BLACK);
-  font-size: 21px;
   text-decoration: none;
   font-weight: 500;
 }
