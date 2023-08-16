@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+import HomeIcon from '@mui/icons-material/Home';
 import * as colors from '../../styles/mapColors';
 
 const FloatingButton = ({ onClick }: { onClick: () => void }) => {
@@ -9,10 +9,11 @@ const FloatingButton = ({ onClick }: { onClick: () => void }) => {
       sx={{
         position: 'fixed',
         bottom: '50px',
-        left: '50%',
+        left: '94%',
         transform: 'translateX(-50%)',
-        zIndex: 1,
+        zIndex: 12000,
         color: colors.MAP_BLACK,
+        opacity: 0.8,
         '&:hover': {
           color: colors.MAP_WHITE
         }
@@ -20,7 +21,7 @@ const FloatingButton = ({ onClick }: { onClick: () => void }) => {
     >
       <Fab
         sx={{
-          bgcolor: colors.MAP_ORANGE_TRANS,
+          bgcolor: colors.MAP_ORANGE,
           '&:hover': {
             bgcolor: colors.MAP_BLACK
           }
@@ -28,9 +29,9 @@ const FloatingButton = ({ onClick }: { onClick: () => void }) => {
         color="inherit"
         aria-label="edit"
         onClick={onClick}
-        title="Add new contact"
+        title="Return back to Paris"
       >
-        <AddIcon />
+        <HomeIcon />
       </Fab>
     </Box>
   );

@@ -1,7 +1,7 @@
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-//import styles from './Game.module.css';
+import * as MUI from '../../styles/MUIstyles';
 
 const PlacesCategorySelector = ({
   placesCategory,
@@ -13,17 +13,7 @@ const PlacesCategorySelector = ({
   return (
     <div>
       <p>Category: </p>
-      <FormControl
-        size="small"
-        sx={{
-          m: 0.5,
-          backgroundColor: 'whitesmoke',
-          minWidth: 150,
-          border: '0px solid #f5f5f5ee',
-          borderRadius: '2px'
-          //zIndex: -1
-        }}
-      >
+      <FormControl size="small" sx={MUI.selector}>
         <Select
           value={placesCategory}
           onChange={(event) => setPlacesCategory(event.target.value as string)}

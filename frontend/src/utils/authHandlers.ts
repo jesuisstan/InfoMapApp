@@ -23,8 +23,9 @@ export const getUserData = async (
       withCredentials: true
     });
     setUser(response.data);
-  } catch (error) {
-    errorAlert('Please login to use Contact Book App');
+  } catch (error: any) {
+    if (error.response.status !== 401)
+      errorAlert('Something went wrong while logging in');
   }
 };
 

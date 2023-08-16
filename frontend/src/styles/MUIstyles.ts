@@ -64,3 +64,13 @@ export const burgerItem = {
     cursor: 'pointer'
   }
 };
+
+export const selector = {
+  transition: 'transform 0.5s ease-in-out, color 0.2s ease-out',
+  m: 0.5,
+  backgroundColor: 'whitesmoke',
+  minWidth: 150,
+  ':hover': {
+    backgroundColor: colors.MAP_WHITE
+  }
+};

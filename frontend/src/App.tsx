@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.page';
 import NotFound from './pages/NotFound.page';
 import { User } from './types/User';
-import * as utils from './utils/authHandlers';
-import './styles/index.css';
 import MainLayout from './components/UI/MainLayout';
 import PleaseLogin from './components/Login/PleaseLogin';
 import InfoMap from './components/Map/InfoMap';
+import * as utils from './utils/authHandlers';
+import './styles/index.css';
 
 const App = () => {
   const [user, setUser] = useState<User>({
@@ -33,7 +33,9 @@ const App = () => {
             <Route index={true} element={<Home />} />
             <Route
               path="infomap"
-              element={<InfoMap />}
+              element={
+                user.nickname ? <InfoMap /> : <PleaseLogin setUser={setUser} />
+              }
             />
             <Route path="login" element={<PleaseLogin setUser={setUser} />} />
             <Route path="*" element={<NotFound />} />

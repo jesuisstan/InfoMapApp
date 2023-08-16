@@ -26,7 +26,7 @@ RUN npm install
 COPY . .
 
 # Expose the ports for the backend and frontend
-EXPOSE 9999 9000
+EXPOSE 4444 4040
 
 # Start the backend and frontend using npm concurrently
 CMD ["npm", "start"]

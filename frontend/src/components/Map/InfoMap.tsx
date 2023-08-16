@@ -1,30 +1,34 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/images/marker-shadow.png';
 import PlacesCategorySelector from './PlacesCategorySelector';
+import VisibleAmountSelector from './VisibleAmountSelector';
 import styles from '../../styles/InfoMap.module.css';
 import axios from 'axios';
-import VisibleAmountSelector from './VisibleAmountSelector';
+import errorAlert from '../../utils/errorAlert';
+import FloatingButton from '../UI/FloatingButton';
 
-const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'; // Use the CORS Anywhere proxy
-const yelpApiUrl = 'https://api.yelp.com/v3/businesses/search';
-const yelpApiKey =
-  'KYlMdpPmsji2yrNI0zvib15jTZZsa8yJN2BiFZLe2PDdLVXR2i1gspUB06cVbxmv-l_l0bqjSkQu96wTqh8ydNFnGfCY0NM5duFGLt1JM-fLGbxkHYwZ3_Jp-LTcZHYx';
+const homeTownCoordinates = [48.8566, 2.3522]; // Latitude and Longitude of Paris
 
 const markerIcon = L.icon({
   iconSize: [25, 41],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+  iconUrl: process.env.REACT_APP_YELP_ICON_URL!,
+  shadowUrl: process.env.REACT_APP_YELP_SHADOW_URL!
 });
 
-const InfoMap: React.FC = () => {
+const InfoMap = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
   const [visibleAmount, setVisibleAmount] = useState(10);
   const [placesCategory, setPlacesCategory] = useState('restaurants');
+
+  const [fixedCoordinates, setFixedCoordinates] = useState<[number, number]>([
+    homeTownCoordinates[0],
+    homeTownCoordinates[1]
+  ]);
 
   useEffect(() => {
     if (mapContainerRef.current) {
@@ -32,29 +36,45 @@ const InfoMap: React.FC = () => {
         mapRef.current.remove();
       }
 
-      const map = L.map(mapContainerRef.current).setView([48.8566, 2.3522], 13);
+      const map = L.map(mapContainerRef.current).setView(
+        [...fixedCoordinates],
+        13
+      );
+
       mapRef.current = map; // Store the reference
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
       }).addTo(map);
 
+      const handleMapClick = (event: L.LeafletMouseEvent) => {
+        const { lat, lng } = event.latlng;
+        setFixedCoordinates([lat, lng]);
+      };
+
+      map.on('click', handleMapClick);
+
       // Fetch places data from Yelp Fusion API
       const fetchPlaces = async () => {
         try {
-          const response = await axios.get(corsAnywhereUrl + yelpApiUrl, {
-            headers: {
-              Authorization: `Bearer ${yelpApiKey}`,
-              //Origin: '*'
-            },
-            params: {
-              term: placesCategory,
-              location: 'Paris',
-              limit: visibleAmount
+          const response = await axios.get(
+            process.env.REACT_APP_URL_CORS! +
+              process.env.REACT_APP_YELP_API_URL!,
+            {
+              headers: {
+                Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`
+                //Origin: '*'
+              },
+              params: {
+                term: placesCategory,
+                //location: 'Paris',
+                latitude: fixedCoordinates[0],
+                longitude: fixedCoordinates[1],
+                limit: visibleAmount
+              }
             }
-          });
+          );
 
           const places = response.data.businesses;
-          console.log(places);
 
           // Loop through places data and add markers to the map
           places.forEach((place: any) => {
@@ -81,14 +101,19 @@ const InfoMap: React.FC = () => {
             });
           });
         } catch (error) {
-          console.error('Error fetching places data:', error);
+          errorAlert('Error fetching places data:');
         }
       };
 
       fetchPlaces();
-    }
-  }, [placesCategory, visibleAmount]);
 
+      return () => {
+        map.off('click', handleMapClick);
+      };
+    }
+  }, [placesCategory, visibleAmount, fixedCoordinates]);
+
+  console.log('1');
   return (
     <div className={styles.centeredCard}>
       <div className={styles.selector}>
@@ -100,6 +125,14 @@ const InfoMap: React.FC = () => {
           visibleAmount={visibleAmount}
           setVisibleAmount={setVisibleAmount}
         ></VisibleAmountSelector>
+        <FloatingButton
+          onClick={() =>
+            setFixedCoordinates([
+              homeTownCoordinates[0],
+              homeTownCoordinates[1]
+            ])
+          }
+        />
       </div>
       <div ref={mapContainerRef} className={styles.InfoMap} />
     </div>

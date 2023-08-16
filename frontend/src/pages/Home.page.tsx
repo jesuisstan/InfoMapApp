@@ -10,26 +10,26 @@ const Home = () => {
     <div className={styles.main}>
       <img
         src={require('../assets/location.png')}
-        alt="ContactBook"
+        alt="InfoMapApp"
         className={styles.picture}
       />
       <div className={styles.textBlock}>
         <h1>Welcome to Info Map App!</h1>
         <ul className={styles.list}>
           <li>
-            <h3>Create new contacts</h3>
+            <h3>See places of interest on Paris map</h3>
             <br />
           </li>
           <li>
-            <h3>Edit already existing ones</h3>
+            <h3>Change categories of places</h3>
             <br />
           </li>
           <li>
-            <h3>Search through your contacts</h3>
+            <h3>Select the amount of visible places</h3>
             <br />
           </li>
           <li>
-            <h3>Delete unwanted ones</h3>
+            <h3>Move through the map</h3>
           </li>
         </ul>
         <div>
