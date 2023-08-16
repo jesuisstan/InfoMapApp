@@ -21,7 +21,7 @@ const MenuDrawer = ({
     <Drawer
       PaperProps={{
         style: {
-          backgroundColor: colors.MAP_GREEN_TRANS
+          backgroundColor: colors.MAP_BLUE_TRANS
         }
       }}
       anchor="left"
@@ -44,7 +44,7 @@ const MenuDrawer = ({
           }}
         >
           <ListItemText
-            primary="Contacts"
+            primary="Info Map"
             disableTypography
             sx={MUI.burgerItem}
           />

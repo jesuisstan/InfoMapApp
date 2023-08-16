@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: 'GT Walsheim Pro, Arial, sans-serif' // Specify Walsheim as the first choice
+    fontFamily: 'Montserrat, sans-serif'
   }
 });
 
@@ -18,7 +18,7 @@ export const modalDialog = {
 };
 
 export const modalHeader = {
-  fontFamily: 'GT Walsheim Pro, Arial, sans-serif',
+  fontFamily: 'Montserrat, sans-serif',
   fontSize: '1.2rem',
   letterSpacing: '0.02857em',
   textAlign: 'center',
@@ -72,7 +72,7 @@ export const contactCard = {
   color: colors.MAP_BLACK,
   border: '1px solid',
   transition: 'border 0.2s ease-in-out',
-  borderColor: colors.MAP_GREEN,
+  borderColor: colors.MAP_BLUE,
   ':hover': {
     cursor: 'pointer',
     borderColor: colors.MAP_ORANGE

@@ -75,7 +75,7 @@ const ContactBook = ({
       >
         <SearchBar contacts={allContacts} setSearchResult={setSearchResult} />
 
-<Map />
+        <Map />
         <FormControlLabel
           control={
             <Checkbox
@@ -86,7 +86,7 @@ const ContactBook = ({
               sx={{
                 color: colors.MAP_ORANGE,
                 '&.Mui-checked': {
-                  color: colors.MAP_GREEN
+                  color: colors.MAP_BLUE
                 }
               }}
             />

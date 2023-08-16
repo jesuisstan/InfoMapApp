@@ -3,7 +3,7 @@
 .footerBasic {
   position: fixed;
   bottom: 0;
-  background-color: var(--MAP_GREEN);
+  background-color: var(--MAP_BLUE);
   display: flex;
   align-items: center;
   justify-content: center;

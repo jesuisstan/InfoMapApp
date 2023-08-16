@@ -32,7 +32,7 @@ const SignUpModal = ({
     lastName: '',
     nickname: '',
     email: '',
-    password: '',
+    password: ''
   });
 
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +43,7 @@ const SignUpModal = ({
       await axios.post(`${baseUrl}/api/auth/signup`, values, {
         withCredentials: true
       });
-      console.log(values)
+      console.log(values);
       setOpen(false);
       setLoad(false);
       saveAlert();
@@ -51,7 +51,7 @@ const SignUpModal = ({
     } catch (error) {
       setLoad(false);
       setOpen(false);
-      console.log(error)
+      console.log(error);
 
       errorAlert('Error while creating new account');
     }
@@ -59,8 +59,14 @@ const SignUpModal = ({
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    const trimmedValue = value.replace(/\s/g, '');
-    setValues({ ...values, [name]: trimmedValue });
+    let modifiedValue = value;
+
+    if (name === 'email') {
+      modifiedValue = value.toLowerCase();
+    }
+
+    modifiedValue = modifiedValue.replace(/\s/g, '');
+    setValues({ ...values, [name]: modifiedValue });
   };
 
   return (

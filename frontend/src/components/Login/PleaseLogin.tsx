@@ -58,8 +58,22 @@ const PleaseLogin = ({
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    const trimmedValue = value.replace(/\s/g, '');
-    setValues({ ...values, [name]: trimmedValue });
+
+    let modifiedValue = value;
+
+    if (name === 'email') {
+      modifiedValue = value.toLowerCase();
+    }
+    modifiedValue = modifiedValue.replace(/\s/g, '');
+
+    setValues({ ...values, [name]: modifiedValue });
+  };
+
+  const testLogin = () => {
+    setValues({
+      email: process.env.REACT_APP_TEST_EMAIL!,
+      password: process.env.REACT_APP_TEST_PASSWORD!
+    });
   };
 
   return loading ? (
@@ -70,13 +84,13 @@ const PleaseLogin = ({
         flexDirection: 'column',
         alignItems: 'center',
         gap: '21px',
-        color: colors.MAP_GREEN,
+        color: colors.MAP_BLUE,
         justifyContent: 'center'
       }}
     >
       <p>loading...</p>
       <BarLoader
-        color={colors.MAP_GREEN}
+        color={colors.MAP_BLUE}
         loading={loading}
         aria-label="Loading Spinner"
         data-testid="loader"
@@ -153,6 +167,16 @@ const PleaseLogin = ({
               onClick={() => setSignUpOpen(true)}
             >
               Sign Up
+            </LoadingButton>
+            <LoadingButton
+              type="submit"
+              loading={loadingLogin}
+              variant="contained"
+              color="inherit"
+              sx={MUI.LoadButton}
+              onClick={testLogin}
+            >
+              Test
             </LoadingButton>
           </form>
         </div>
