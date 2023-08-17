@@ -29,7 +29,7 @@ const Home = () => {
             <br />
           </li>
           <li>
-            <h3>Move through the map</h3>
+            <h3>Move through the whole map</h3>
           </li>
         </ul>
         <div>

@@ -18,6 +18,7 @@ const App = () => {
     lastName: ''
   });
 
+  //fetch user data from database
   useEffect(() => {
     utils.getUserData(setUser);
   }, []);

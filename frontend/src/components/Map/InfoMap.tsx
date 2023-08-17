@@ -1,3 +1,10 @@
+/*
+The InfoMap component's purpose is to display a map interface with interactive markers
+representing places fetched from the Yelp Fusion API, enabling users to explore different categories
+and adjust the number of visible places. 
+It offers a dynamic and user-friendly way to discover and interact with location-based data.
+*/
+
 import { useRef, useEffect, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -30,6 +37,10 @@ const InfoMap = () => {
     homeTownCoordinates[1]
   ]);
 
+  /*Within the useEffect hook, the component sets up the Leaflet map instance,
+    attaches a click event handler to update the fixed coordinates,
+    and adds a tile layer from OpenStreetMap.
+  */
   useEffect(() => {
     if (mapContainerRef.current) {
       if (mapRef.current) {
@@ -107,6 +118,7 @@ const InfoMap = () => {
 
       fetchPlaces();
 
+      //The useEffect hook returns a cleanup function to remove the click event listener when the component unmounts
       return () => {
         map.off('click', handleMapClick);
       };
