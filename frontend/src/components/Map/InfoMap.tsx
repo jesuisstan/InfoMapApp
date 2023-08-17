@@ -111,8 +111,18 @@ const InfoMap = () => {
               marker.unbindTooltip();
             });
           });
-        } catch (error) {
-          errorAlert('Error fetching places data:');
+        } catch (error: any) {
+          if (error.response.status !== 401) {
+            errorAlert(
+              'Error fetching places data: YELP authentication failed'
+            );
+          } else if (error.response.status !== 429) {
+            errorAlert(
+              'Error fetching places data: max requests per day (500) to YELP exceeded'
+            );
+          } else {
+            errorAlert('Unknown error fetching places data from YELP');
+          }
         }
       };
 
@@ -125,7 +135,6 @@ const InfoMap = () => {
     }
   }, [placesCategory, visibleAmount, fixedCoordinates]);
 
-  console.log('1');
   return (
     <div className={styles.centeredCard}>
       <div className={styles.selector}>
