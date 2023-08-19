@@ -15,7 +15,7 @@ import * as MUI from '../../styles/MUIstyles';
 import * as colors from '../../styles/mapColors';
 import styles from '../../styles/Login.module.css';
 
-const baseUrl = `http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}`;
+const baseUrl = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_FRONTEND_PORT}`;
 
 const SignUpModal = ({
   open,
