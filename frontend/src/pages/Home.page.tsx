@@ -17,7 +17,7 @@ const Home = () => {
         <h1>Welcome to Info Map App!</h1>
         <ul className={styles.list}>
           <li>
-            <h3>See places of interest on Paris map</h3>
+            <h3>See places of interest on World map</h3>
             <br />
           </li>
           <li>

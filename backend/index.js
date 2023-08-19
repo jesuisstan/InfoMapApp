@@ -26,7 +26,7 @@ const connect = () => {
 app.use(cookieParser());
 
 app.use('/api/check', (req, res) => {
-  res.send("Hello from ContactBookApp server")
+  res.send("Hello from InfoMapApp server")
 });
 
 app.use('/api/auth', authRoutes);

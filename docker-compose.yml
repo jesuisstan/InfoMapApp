@@ -1,0 +1,19 @@
+version: "3"
+services:
+  info_map_frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "4040:4040"  # Map container port 80 to host port 4040
+    depends_on:
+      - info_map_backend
+    restart: always  # Restart the container if it stops for any reason
+
+  info_map_backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "4444:4444"
+    restart: always  # Restart the container if it stops for any reason

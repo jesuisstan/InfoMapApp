@@ -28,7 +28,12 @@
 .footerLink:link,
 .footerLink:visited {
   font-size: 10px;
-  color: var(--MAP_ORANGE);
+  color: var(--MAP_BLACK);
   font-weight: bold;
   opacity: 1;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: var(--MAP_ORANGE);
 }
