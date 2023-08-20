@@ -72,7 +72,7 @@ const InfoMap = () => {
               process.env.REACT_APP_YELP_API_URL!,
             {
               headers: {
-                Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`
+                Authorization: `Bearer ${process.env.REACT_APP_YELP_KEY}`,
                 //Origin: '*'
               },
               params: {
