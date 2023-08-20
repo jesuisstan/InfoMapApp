@@ -161,24 +161,25 @@ const PleaseLogin = ({
             </LoadingButton>
             <LoadingButton
               type="submit"
-              variant="contained"
-              color="inherit"
-              sx={MUI.LoadButton}
-              onClick={() => setSignUpOpen(true)}
-            >
-              Sign Up
-            </LoadingButton>
-            <LoadingButton
-              type="submit"
               loading={loadingLogin}
               variant="contained"
               color="inherit"
               sx={MUI.LoadButton}
               onClick={testLogin}
+              startIcon={<ErrorOutlineIcon />}
             >
               Test
             </LoadingButton>
           </form>
+          <LoadingButton
+            type="submit"
+            variant="contained"
+            color="inherit"
+            sx={{ ...MUI.LoadButton, width: '87%' }}
+            onClick={() => setSignUpOpen(true)}
+          >
+            Sign Up
+          </LoadingButton>
         </div>
       </Stack>
     </div>

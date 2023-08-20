@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/usersRoute.js';
 import authRoutes from './routes/authRoute.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 const app = express();
 
@@ -21,6 +22,15 @@ const connect = () => {
       throw err;
     });
 };
+
+// Configure CORS middleware
+app.use(
+  cors({
+    origin: `${process.env.REACT_APP_HOST}:${process.env.REACT_APP_FRONTEND_PORT}`,
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true,
+  })
+);
 
 //middlewares
 app.use(cookieParser());
