@@ -1,6 +1,6 @@
 version: "3"
 services:
-  info_map_frontend:
+  frontend:
     build:
       context: .
       dockerfile: frontend/Dockerfile
@@ -9,10 +9,10 @@ services:
     ports:
       - "4040:4040"
     depends_on:
-      - info_map_backend
+      - backend
     restart: unless-stopped
 
-  info_map_backend:
+  backend:
     build:
       context: .
       dockerfile: backend/Dockerfile

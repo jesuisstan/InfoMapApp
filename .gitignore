@@ -28,8 +28,8 @@ package-lock.json
 # misc
 .DS_Store
 #.env
-#/backend/.env
-#./backend/.env
+/backend/.env
+/frontend/.env
 
 
 npm-debug.log*
