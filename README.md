@@ -63,7 +63,7 @@ While the project has been successfully implemented and deployed, there are pote
 By addressing these areas for improvement, the project can be further optimized and polished, providing an even better user experience.
 
 ## How to use
-##### 1. Adjust backend/.env and frontend/.env files if you need other HOST, PORT, MONGO or YELP variables.
+##### 1. Adjust .env file if you need other HOST, PORT, MONGO or YELP variables.
 ##### 2. Adjust "proxy" line in frontend/package.json file so that it points to your Server (to avoid CORS errors)
 For example:
 - "proxy": "http://backend:4444" (if you use docker compose to run the App)
