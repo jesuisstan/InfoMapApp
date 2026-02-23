@@ -1,8 +1,5 @@
 # Project Documentation: Info Map Fullstack App
 
-The deployed project can be accessed at http://209.38.216.33:4040/. \
-The source code with explanatory comments is available on GitHub [repository](https://github.com/jesuisstan/InfoMapApp).
-
 ## Objective
 
 The primary goal of this project was to develop a web app using react / typescript to display a map and API data.
@@ -112,3 +109,4 @@ docker rm $(docker ps -a -q)
 ```sh
 docker rmi $(docker images -q)
 ```
+
